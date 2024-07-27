@@ -1,0 +1,17 @@
+def longest_common_prefix(strs):
+    if not strs:
+        return ""
+
+    strs.sort()
+    first = strs[0]
+    last = strs[-1]
+    common_prefix_length = min(len(first), len(last))
+
+    for i in range(common_prefix_length):
+        if first[i] != last[i]:
+            return first[:i]
+    
+    return first[:common_prefix_length]
+
+print(longest_common_prefix(["flower", "flow", "flight"]))  
+print(longest_common_prefix(["dog", "racecar", "car"]))     
